@@ -20,13 +20,14 @@
   <section class="section">
     <div class="container">
       <div class="container-form">
-        <div class="header-form">
-          <h1>Mortgage calculator</h1>
-          <button class="clear-form">Clear All</button>
-        </div>
-        <form action="">
+ 
+        <form>
+          <div class="header-form">
+            <h1 class="h1">Mortgage calculator</h1>
+            <input type="reset" class="clear-form" value="Clear All">
+          </div>
           <div class="input-container">
-            <label for="amount">Mortgage Amount</label>
+            <label class="number-labels"  for="amount">Mortgage Amount</label>
             <div class="border-input">
               <div class="input-sign">$</div>
               <input type="number" id="amount">
@@ -34,14 +35,14 @@
           </div>
           <div class="grid-input input-container">
             <div class="column-input-container">
-              <label for="term">Mortgage Term</label>
+              <label class="number-labels"  for="term">Mortgage Term</label>
               <div class="border-input">
                 <input type="number" id="term">
                 <div class="input-sign">years</div>
               </div>
             </div>
             <div class="column-input-container">
-              <label for="interest">Interest Rate</label>
+              <label class="number-labels"  for="interest">Interest Rate</label>
               <div class="border-input">
                 <input type="number" id="interest">
                 <div class="input-sign">%</div>
@@ -49,40 +50,44 @@
             </div>
           </div>
           <div class="input-container">
-            <label for="type">Mortgage Type</label>
-            <div class="border-input">
-              <input type="radio" id="type">
+            <label class="number-labels">Mortgage Type</label>
+            <div class="border-input radio-container">
+              <input type="radio" id="repayment" value="repayment" name="result-type">
+              <label for="repayment" class="radio-label">Repayment</label>
             </div>
-            <div class="border-input">
-              <input type="radio" id="type">
+            <div class="border-input radio-container">
+              <input type="radio" id="intrest" value="intrest" name="result-type">
+              <label for="intrest" class="radio-label">Intrest Only</label>
             </div>
           </div>
           <button class="submit-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#133041" d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"/></svg>
             Calculate Repayments
           </button>
         </form>
       </div>
       <div class="container-result">
         <div class="empty-result">
-          <img src="assets/images/illustration-empty.svg" alt="calculate sign">
+          <img class="calculate-img" src="assets/images/illustration-empty.svg" alt="calculate sign">
           <div class="text-empty-result">
-            <p>Result shown here</p>
-            <p>Complete the form and click <q>calculate repayments</q> to see what your monthly repayments would be.</p>
+            <p class="header-result align-text">Result shown here</p>
+            <p class="para-result align-text">Complete the form and click <q>calculate repayments</q> to see what your monthly repayments would be.</p>
           </div>
         </div>
         <div class="result">
-          <p>Your result</p>
-          <p>Your result are shown below based on the information you provided. To adjust the result, edit the form and click <q>calculate repayments</q> again.</p>
+          <p class="header-result">Your result</p>
+          <p class="para-result">Your result are shown below based on the information you provided. To adjust the result, edit the form and click <q>calculate repayments</q> again.</p>
           <div class="outcome-calculate">
             <div class="outcome-monthly">
-              <p>Your monthly repayments</p>
-              <p></p>
+              <p class="sub-para">Your monthly repayments</p>
+              <p class="monthly-cost">$100,000</p>
+            </div>
+            <div class="total-outcome">
+              <p class="sub-para">Total you'll repay over the term</p>
+              <p class="total-cost">$400</p>
             </div>
           </div>
-          <div class="total-outcome">
-            <p>Total you'll repay over the term</p>
-            <p></p>
-          </div>
+
         </div>
       </div>
     </div>
