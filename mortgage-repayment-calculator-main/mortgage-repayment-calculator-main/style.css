@@ -11,6 +11,7 @@
   --white: hsl(0, 0%, 100%);
   --lighter-blue: hsl(203, 41%, 72%);
   --very-light-blue: hsl(202, 86%, 94%);
+  --error-color: hsl(4, 69%, 50%);
 }
 
 body {
@@ -70,6 +71,7 @@ body {
 
 .input-container {
   margin-top: 26px;
+  position: relative;
 }
 
 label {
@@ -101,7 +103,6 @@ label {
   &:focus-within {
     border-width: 2px;
     border-color: var(--light-green);
-    background-color: rgba(215, 218, 47, 0.1);
 
     .input-sign {
       background-color: var(--light-green);
@@ -119,7 +120,15 @@ label {
   align-items: center;
 }
 
-input[type*="number"] {
+.error-massage {
+  color: var(--error-color);
+  font-size: .85rem;
+  position: absolute;
+  top: 105%;
+  display: none;
+}
+
+input[type*="text"] {
   flex: 1;
   padding-inline: 10px;
   outline: none;
@@ -168,6 +177,7 @@ input[type="radio"] {
   width: 15px;
   height: 14px;
   border: 1px solid var(--dark-green);
+  background-color: var(--white);
   border-radius: 7px;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
@@ -181,8 +191,6 @@ input[type="radio"] {
   &:checked {
     background-color: var(--light-green);
     border: none;
-
-  
   }
 
   &::after {
@@ -251,9 +259,6 @@ input[type="radio"] {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-  display: none;
-
 }
 
 .calculate-img {
@@ -285,6 +290,7 @@ input[type="radio"] {
 }
 
 .result {
+  display: none;
 }
 
 .outcome-calculate {
@@ -324,6 +330,22 @@ input[type="radio"] {
   color: var(--white);
   font-size: 1.1rem;
   padding-block: 10px;
+}
+
+/* javascript classes */
+.js-checked-radio {
+  background-color: rgba(215, 218, 47, 0.1);
+  border-color: var(--light-green);
+  border-width: 2px;
+}
+
+.js-error-style {
+  border-color: var(--error-color) ;
+
+  .input-sign {
+    background-color: var(--error-color);
+    color: var(--white);
+  }
 }
 
 @media(max-width: 992px) {
