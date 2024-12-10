@@ -31,8 +31,8 @@ let values;
 function saveInputValues() {
   values = {
     amount: amountElm.value,
-    interest: Number(interestRateElm.value),
-    term: Number(termElm.value)
+    term: Number(termElm.value),
+    interest: Number(interestRateElm.value)
   };
 }
 
@@ -44,16 +44,16 @@ function calculateMortgage() {
   removedCommas();
 
   // Convert annual interest rate to monthly interest rate
-  let monthlyInterestRate = values.interest / 12 / 100;
+  const monthlyInterestRate = values.interest / 12 / 100;
   // Total number of payments (months)
-  let numberOfPayments = values.term * 12;
+  const numberOfPayments = values.term * 12;
   // Formula to calculate the monthly mortgage payment
-  let monthlyPayment = values.amount * monthlyInterestRate / 
+  const monthlyPayment = values.amount * monthlyInterestRate / 
     (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
   // Calculate the total amount paid over the life of the loan
-  let totalPayment = monthlyPayment * numberOfPayments;
+  const totalPayment = monthlyPayment * numberOfPayments;
   // Calculate the total interest paid
-  let totalInterest = totalPayment - values.amount;
+  const totalInterest = totalPayment - values.amount;
       
   // Format numbers with commas
   const formatNumber = (num) => new Intl.NumberFormat('en-US').format(num);
