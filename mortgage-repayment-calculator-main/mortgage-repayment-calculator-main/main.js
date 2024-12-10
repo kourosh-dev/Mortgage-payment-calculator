@@ -25,25 +25,35 @@ radioBtn.forEach((elm, i) => {
 const amountElm = document.querySelector('.js-amount-input');
 const interestRateElm = document.querySelector('.js-intrest-input');
 const termElm = document.querySelector('.js-term-input');
+let values;
+
+// getting inputs value and and save it in object
+function saveInputValues() {
+  values = {
+    amount: amountElm.value,
+    interest: Number(interestRateElm.value),
+    term: Number(termElm.value)
+  };
+}
 
 // calculate mortgage and retun mortgage payment monthly
 function calculateMortgage() {
-  // getting inputs value
-  const amount = Number(amountElm.value);
-  const interest = Number(interestRateElm.value);
-  const term = Number(termElm.value);
+  // getting inputs value and and save it in object
+  saveInputValues();
+  // remove comma from input
+  removedCommas();
 
   // Convert annual interest rate to monthly interest rate
-  let monthlyInterestRate = interest / 12 / 100;
+  let monthlyInterestRate = values.interest / 12 / 100;
   // Total number of payments (months)
-  let numberOfPayments = term * 12;
+  let numberOfPayments = values.term * 12;
   // Formula to calculate the monthly mortgage payment
-  let monthlyPayment = amount * monthlyInterestRate / 
+  let monthlyPayment = values.amount * monthlyInterestRate / 
     (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
   // Calculate the total amount paid over the life of the loan
   let totalPayment = monthlyPayment * numberOfPayments;
   // Calculate the total interest paid
-  let totalInterest = totalPayment - amount;
+  let totalInterest = totalPayment - values.amount;
       
   // Format numbers with commas
   const formatNumber = (num) => new Intl.NumberFormat('en-US').format(num);
@@ -70,8 +80,10 @@ function evaluation() {
       inputsContainer[i].classList.remove('js-error-style');
       errorMassage[i].style.display = 'none';
     });
+  });
 
-    if (elm.value === '' || isNaN(elm.value) || elm.value <= 0) {
+  Object.keys(values).forEach((key, i) => {
+    if (values[key] === '' || isNaN(values[key]) || values[key] <= 0) {
       inputsContainer[i].classList.add('js-error-style');
       errorMassage[i].style.display = 'inline';
       evaluated++;
@@ -101,8 +113,6 @@ submitEml.addEventListener('click', () => {
 
 // render calulated result
 function renderPayment() {
-  // remove comma from input
-  removedCommas();
   // calcuate mortgage payment and save result in variable
   const mortgagePayment = calculateMortgage();
   // evaluation inputs
@@ -155,10 +165,10 @@ amountElm.addEventListener('input', function (e) {
 // Get the raw numerical value when the button is clicked
 function removedCommas() {
   // Remove commas from the input field value
-  const rawValue = amountElm.value.replace(/,/g, '');
+  const rawValue = values.amount.replace(/,/g, '');
 
   if (rawValue && !isNaN(rawValue)) {
-    amountElm.value = parseFloat(rawValue);
+    values.amount = parseFloat(Number(rawValue));
   }
 };
 
