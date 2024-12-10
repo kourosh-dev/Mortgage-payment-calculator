@@ -1,11 +1,18 @@
+// style to checked and unchecked radio button 
 const radioBtn = document.querySelectorAll('.js-radio-btn');
 const radioContainer = document.querySelectorAll('.js-radio-container');
+
+// remove style from radio
+function removeStyleOfRadio() {
+  radioContainer.forEach(elm => {
+    elm.classList.remove('js-checked-radio');
+  });
+}
+
 radioBtn.forEach((elm, i) => {
   elm.addEventListener('click', () => {
     // remove style from every radio container
-    radioContainer.forEach(elm => {
-      elm.classList.remove('js-checked-radio');
-    });
+    removeStyleOfRadio();
 
     // add style to checked radio container
     if (elm.checked) {
@@ -64,7 +71,7 @@ function evaluation() {
       errorMassage[i].style.display = 'none';
     });
 
-    if (elm.value === '') {
+    if (elm.value === '' || isNaN(elm.value) || elm.value <= 0) {
       inputsContainer[i].classList.add('js-error-style');
       errorMassage[i].style.display = 'inline';
       evaluated++;
@@ -94,6 +101,8 @@ submitEml.addEventListener('click', () => {
 
 // render calulated result
 function renderPayment() {
+  // remove comma from input
+  removedCommas();
   // calcuate mortgage payment and save result in variable
   const mortgagePayment = calculateMortgage();
   // evaluation inputs
@@ -110,6 +119,13 @@ function renderPayment() {
     noResult.style.display = 'none';
     result.style.display = 'block';
 
+    // click reset input 
+    const resetBtn = document.getElementById('js-reset-form');
+    resetBtn.click();
+
+    // remove style from radio button
+    removeStyleOfRadio();
+
     if (evaluated === 'repayment') {
       monthlyElm.innerHTML = `$${mortgagePayment.monthlyPayment}`;
       totalElm.innerHTML = `$${mortgagePayment.totalPayment}`;
@@ -119,6 +135,32 @@ function renderPayment() {
     }
   }
 }
+
+// Format the input value with commas as the user types
+amountElm.addEventListener('input', function (e) {
+  // Remove any existing commas
+  const rawValue = e.target.value.replace(/,/g, '');
+
+  // Check if the input is a valid number
+  if (!isNaN(rawValue) && rawValue !== '') {
+    // Format the number with commas
+    const formattedValue = new Intl.NumberFormat('en-US').format(rawValue);
+    // Set the formatted value back to the input field
+    e.target.value = formattedValue;
+  } else if (rawValue === '') {
+    e.target.value = ''; // Allow empty input
+  }
+});
+
+// Get the raw numerical value when the button is clicked
+function removedCommas() {
+  // Remove commas from the input field value
+  const rawValue = amountElm.value.replace(/,/g, '');
+
+  if (rawValue && !isNaN(rawValue)) {
+    amountElm.value = parseFloat(rawValue);
+  }
+};
 
 
 
