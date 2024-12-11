@@ -21,7 +21,7 @@
   <section class="section">
     <div class="container">
       <div class="container-form">
-        <form>
+        <form autocomplete="off">
           <div class="header-form">
             <h1 class="h1">Mortgage calculator</h1>
             <input type="reset" class="clear-form" id="js-reset-form" value="Clear All">
@@ -35,7 +35,7 @@
             <span class="js-error-massage error-massage">This field is required</span>
           </div>
           <div class="grid-input">
-            <div class="column-input-container input-container">
+            <div class="input-container">
               <label class="number-labels"  for="term">Mortgage Term</label>
               <div class="border-input js-input-text-container">
                 <input class="js-term-input js-input" type="text" id="term">
@@ -43,7 +43,7 @@
               </div>
               <span class="js-error-massage error-massage">This field is required</span>
             </div>
-            <div class="column-input-container input-container">
+            <div class="input-container">
               <label class="number-labels"  for="interest">Interest Rate</label>
               <div class="border-input js-input-text-container">
                 <input class="js-intrest-input js-input" type="text" id="interest">
@@ -73,7 +73,7 @@
       <div class="container-result">
         <div class="empty-result js-empty-result">
           <img class="calculate-img" src="assets/images/illustration-empty.svg" alt="calculate sign">
-          <div class="text-empty-result">
+          <div>
             <p class="header-result align-text">Result shown here</p>
             <p class="para-result align-text">Complete the form and click <q>calculate repayments</q> to see what your monthly repayments would be.</p>
           </div>

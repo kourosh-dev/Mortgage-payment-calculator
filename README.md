@@ -1,4 +1,5 @@
 # Mortgage-payment-calculator
+![mrtgage payment calculator](preview.jpg)
 
 ## Description
 This project is a mortgage calculator that helps users calculate their monthly mortgage payments based on the principal, interest rate, and loan term. It also allows users to visualize the impact of different rates and terms on their mortgage payments.
@@ -12,21 +13,24 @@ This project is a mortgage calculator that helps users calculate their monthly m
 
 ## Installation
 1. 
-  - Clone the repository:
+  1. Clone the repository:
       ```
       git clone https://github.com/yourusername/mortgage-calculator.git
       ```
-  - Navigate to the project folder:
+  2. Navigate to the project folder:
       ```
       cd mortgage-calculator
       ```
-  - Open the project in your browser by simply opening the `index.html` file.
-2. 
-  - copy this URL:
-    ```
+  3. Open the project in your browser by simply opening the `index.html` file.
 
+2. 
+  1. copy this URL:
     ```
-  - paste it into in URL box in your browser.
+    https://kourosh-dev.github.io/Mortgage-payment-calculator/
+    ```
+  2. paste it into in URL box in your browser.
+
+3. you can also see images of page in design folder 
 
 ## Usage
 1. Open the project in your browser.

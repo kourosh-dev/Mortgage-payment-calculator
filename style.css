@@ -150,10 +150,6 @@ input[type*="text"] {
   gap: 20px;
 }
 
-.column-input-container {
-
-}
-
 .radio-container {
   align-items: center;
   gap: 10px;
@@ -265,10 +261,6 @@ input[type="radio"] {
   margin-bottom: 16px;
 }
 
-.text-empty-result {
-
-}
-
 .result,
 .empty-result {
   height: 100%;
@@ -303,10 +295,6 @@ input[type="radio"] {
   padding: 20px;
   margin-top: 34px;
   border-top: 4px solid var(--light-green);
-}
-
-.outcome-monthly {
- 
 }
 
 .total-outcome {
