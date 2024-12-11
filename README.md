@@ -13,22 +13,22 @@ This project is a mortgage calculator that helps users calculate their monthly m
 
 ## Installation
 1. 
-  1. Clone the repository:
+  - Clone the repository:
       ```
       git clone https://github.com/yourusername/mortgage-calculator.git
       ```
-  2. Navigate to the project folder:
+  - Navigate to the project folder:
       ```
       cd mortgage-calculator
       ```
-  3. Open the project in your browser by simply opening the `index.html` file.
+  - Open the project in your browser by simply opening the `index.html` file.
 
 2. 
-  1. copy this URL:
+  - copy this URL:
     ```
     https://kourosh-dev.github.io/Mortgage-payment-calculator/
     ```
-  2. paste it into in URL box in your browser.
+  - paste it into in URL box in your browser.
 
 3. you can also see images of page in design folder 
 
