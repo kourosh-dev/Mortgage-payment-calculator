@@ -172,6 +172,11 @@ function removedCommas() {
   }
 };
 
+// remove style when clear all key is pressed
+document.getElementById('js-reset-form').addEventListener('click', () => {
+  removeStyleOfRadio();
+});
+
 
 
 
